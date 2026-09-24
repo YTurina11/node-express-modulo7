@@ -7,7 +7,7 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "seed": "node src/seeders/seed.js",
-    "check": "node --check src/app.js && node --check src/controllers/userController.js && node --check src/controllers/orderController.js && node --check src/services/sqlComparison.js && node --check src/routes/userRoutes.js && node --check src/routes/orderRoutes.js && node --check src/models/index.js && node --check src/models/User.js && node --check src/models/Order.js && node --check src/models/AuditLog.js",
+    "check": "node --check src/app.js && node --check src/controllers/userController.js && node --check src/controllers/orderController.js && node --check src/controllers/authController.js && node --check src/controllers/uploadController.js && node --check src/services/sqlComparison.js && node --check src/routes/userRoutes.js && node --check src/routes/orderRoutes.js && node --check src/routes/authRoutes.js && node --check src/routes/uploadRoutes.js && node --check src/middlewares/authMiddleware.js && node --check src/middlewares/uploadMiddleware.js && node --check src/models/index.js && node --check src/models/User.js && node --check src/models/Order.js && node --check src/models/AuditLog.js",
     "compare:orm": "node -e \"require('dotenv').config(); require('./src/services/sqlComparison').compareSQLAndORM().then(r=>{console.log(JSON.stringify(r,null,2));}).catch(e=>{console.error(e.message);process.exit(1);})\""
   },
   "keywords": [
@@ -23,6 +23,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.4.0",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3"

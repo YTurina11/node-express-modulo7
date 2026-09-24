@@ -1,6 +1,8 @@
 const express = require('express');
 const { connectDB, sequelize } = require('./config/database');
 const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 require('dotenv').config();
 
@@ -30,6 +32,8 @@ app.get('/', (req, res) => {
 // Rutas de la API
 app.use('/api/usuarios', userRoutes);
 app.use('/api/pedidos', orderRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Manejo de rutas no encontradas (404)
 app.use((req, res) => {
